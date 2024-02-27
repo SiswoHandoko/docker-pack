@@ -1,2 +1,2 @@
 # docker-pack
-This Contain docker pack for My Local Development
+This Contain docker pack and documentaion for My Local Development and personal purpose
