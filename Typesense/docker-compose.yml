@@ -1,0 +1,28 @@
+version: '3.8'
+services:
+  typesense:
+    image: typesense/typesense:27.1
+    container_name: typesense
+    ports:
+      - "8108:8108"
+    environment:
+      - TYPESENSE_API_KEY=apikey_local  # Ganti 'xyz' dengan API key pilihan Anda
+      - TYPESENSE_DATA_DIR=/data
+    volumes:
+      - typesense-data:/data
+
+  typesense-dashboard:
+    image: ghcr.io/bfritscher/typesense-dashboard:1.9
+    container_name: typesense-dashboard
+    ports:
+      - "5000:80"
+    environment:
+      - VITE_TYPESENSE_API_KEY=apikey_local  # Sesuaikan dengan API key di service Typesense
+      - VITE_TYPESENSE_HOST=typesense
+      - VITE_TYPESENSE_PORT=8108
+      - VITE_TYPESENSE_PROTOCOL=http
+    depends_on:
+      - typesense
+
+volumes:
+  typesense-data:
