@@ -1,0 +1,6 @@
+elasticsearch.host: http://localhost:9200
+elasticsearch.api_key: YWNWb3RaUUJGc3c5ZUtya05HTzk6NjNkaGVNdVNSR2VsMndlaVo2LUVMQQ==
+
+connectors:
+  - connector_id: "postgresql_connector"
+    service_type: "postgresql"
