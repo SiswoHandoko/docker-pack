@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  redis:
+    image: redis:6
+    container_name: lago-redis
+    ports:
+      - "6379:6379"
+
+  lago:
+    image: getlago/lago:latest
+    container_name: lago
+    ports:
+      - "80:80"
+      - "3000:3000"
+    environment:
+      - REDIS_URL=redis://redis:6379
+    depends_on:
+      - redis
